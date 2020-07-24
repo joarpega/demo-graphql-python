@@ -1,1 +1,28 @@
 # Demo Graphql Python
+
+
+1. Create virtual environment
+```
+$ python3 -m venv env
+
+# Load virtual environment
+$ source env/bin/activate
+
+```
+2. Install wheel 
+```bash
+pip install wheel
+```
+3. Install grapgene
+```
+pip install graphene
+```
+4. Install Django
+```
+pip install Django==3.0.8
+```
+5. Check installed packages 
+```
+pip freeze
+```
+6. Show Django packages with django-admin 
