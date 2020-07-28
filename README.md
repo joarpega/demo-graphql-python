@@ -1,6 +1,11 @@
 # Demo Graphql Python
 
 
+## Previous requirements
+* System operative based on unix or linux 
+* docker and docker-compose
+
+
 1. Create virtual environment
 ```
 $ python3 -m venv env
