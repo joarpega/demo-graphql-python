@@ -18,15 +18,12 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path
-from django.http import HttpResponse
 
+from django.views.decorators.csrf import csrf_exempt
 
-def hello_world(request):
-    """ Return example hello world """
-    return HttpResponse('{"Respuesta": "Hello World"}')
-
+from graphene_django.views import GraphQLView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('hello-world/', hello_world),
+    path('graphql/', csrf_exempt(GraphQLView.as_view(graphiql=True))),
 ]

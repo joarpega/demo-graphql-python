@@ -26,3 +26,14 @@ pip install Django==3.0.8
 pip freeze
 ```
 6. Show Django packages with django-admin 
+
+---
+
+```
+pip install django
+pip install graphene-django
+pip install django-filter
+pip install django-graphql-jwt
+
+django-admin startapp api # crea aplicacion api
+```
