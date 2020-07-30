@@ -1,9 +1,6 @@
-# cookbook/ingredients/schema.py
 import graphene
-
-from graphene_django.types import DjangoObjectType
-
-from demo_graphql_python.api.models import Student
+from graphene_django import DjangoObjectType
+from .models import *
 
 
 class StudentType(DjangoObjectType):
@@ -14,5 +11,5 @@ class StudentType(DjangoObjectType):
 class Query(graphene.ObjectType):
     students = graphene.List(StudentType)
 
-    def resolve_all_categories(self, info, **kwargs):
+    def resolve_students(self, info, **kwargs):
         return Student.objects.all()

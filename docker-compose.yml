@@ -16,10 +16,13 @@ services:
   web:
     build: .
     container_name: graphql
+    image: demo:v1
     command: python manage.py runserver 0.0.0.0:8000
-    # volumes:
-    #   - .:/code
+    volumes:
+      - .:/code
     ports:
       - "8000:8000"
+    environment: 
+      DATABASE_HOST: 'db'
     depends_on:
       - db

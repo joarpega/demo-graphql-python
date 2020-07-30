@@ -41,4 +41,9 @@ pip install django-filter
 pip install django-graphql-jwt
 
 django-admin startapp api # crea aplicacion api
+
+
+python3 manage.py makemigrations
+python3 manage.py migrate
+python3 manage.py shell
 ```
