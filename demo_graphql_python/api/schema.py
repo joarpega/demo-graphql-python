@@ -14,10 +14,10 @@ class Query(graphene.ObjectType):
     def resolve_students(self, info, **kwargs):
         return Student.objects.all()
 
-"""StudentMutation"""
+'''StudentMutation'''
 class StudentMutation(graphene.Mutation):
     class Arguments:
-        # The input arguments for this mutation
+        '''The input arguments for this mutation'''
         name = graphene.String()
         email = graphene.String()
         phone = graphene.String()
@@ -35,6 +35,6 @@ class StudentMutation(graphene.Mutation):
 
         return StudentMutation(student=student)
 
-"""Some coment"""
 class Mutation(graphene.ObjectType):
+    ''' update_student '''
     update_student = StudentMutation.Field()
