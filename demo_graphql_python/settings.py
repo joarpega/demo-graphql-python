@@ -11,6 +11,11 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import environ
+
+env = environ.Env()
+# reading .env file
+environ.Env.read_env()
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -20,7 +25,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '%j73(99!7ln2&8t2#oy5)&!7^z3*xq$8d=75lpwsjg2jv_w)zu'
+SECRET_KEY = 'e$uxf-n(tqs3=#ja%3wex795))rg!7x9rnu(bpa^0#517%1jc+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -37,6 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'graphene_django',
+    'demo_graphql_python.api'
 ]
 
 MIDDLEWARE = [
@@ -75,8 +82,16 @@ WSGI_APPLICATION = 'demo_graphql_python.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'djongo',
+        'NAME': 'admin',
+        'CLIENT': {
+                'host': 'db',
+                'port': 27017,
+                'username': 'root',
+                'password': 'toor',
+                'authSource': 'admin',
+                'authMechanism': 'SCRAM-SHA-1'
+            },
     }
 }
 
@@ -118,3 +133,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+GRAPHENE = {
+    'SCHEMA': 'demo_graphql_python.schema.schema'
+}
